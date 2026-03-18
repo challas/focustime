@@ -1,0 +1,53 @@
+<svg width="1400" height="900" viewBox="0 0 1400 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgC" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#060816"/>
+      <stop offset="1" stop-color="#0A1030"/>
+    </linearGradient>
+    <linearGradient id="neon" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#7C4DFF"/>
+      <stop offset="1" stop-color="#00E5FF"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="0" stdDeviation="14" flood-color="#00E5FF" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+  <rect width="1400" height="900" fill="url(#bgC)"/>
+  <rect x="48" y="48" width="1304" height="804" rx="32" fill="#0A1024" stroke="#1D2A57"/>
+  <text x="96" y="118" fill="#EEF2FF" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">Timer + Notes / Control Deck</text>
+  <text x="96" y="150" fill="#94A8D8" font-family="Inter, Arial, sans-serif" font-size="18">High-contrast dashboard with neon states, kinetic timer emphasis, and command-panel structure.</text>
+
+  <rect x="1010" y="86" width="250" height="48" rx="24" fill="#0C1736" stroke="#28448B" filter="url(#glow)"/>
+  <circle cx="1042" cy="110" r="8" fill="#00FFC6"/>
+  <text x="1060" y="116" fill="#F3F8FF" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">LIVE SYNC ACTIVE</text>
+
+  <rect x="92" y="208" width="360" height="590" rx="28" fill="#091127" stroke="#1B2960"/>
+  <text x="126" y="256" fill="#7E96D6" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="2">SESSION CORE</text>
+  <circle cx="272" cy="420" r="120" stroke="url(#neon)" stroke-width="14" filter="url(#glow)"/>
+  <circle cx="272" cy="420" r="98" fill="#0A1734" stroke="#19306D"/>
+  <text x="186" y="430" fill="#F7FBFF" font-family="JetBrains Mono, monospace" font-size="34" font-weight="700">01:24:18</text>
+  <text x="196" y="465" fill="#7E96D6" font-family="Inter, Arial, sans-serif" font-size="18">FOCUS MODE</text>
+  <rect x="130" y="586" width="100" height="44" rx="16" fill="url(#neon)"/>
+  <text x="159" y="614" fill="#07101F" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="800">START</text>
+  <rect x="242" y="586" width="100" height="44" rx="16" fill="#111C3B" stroke="#3255AE"/>
+  <text x="272" y="614" fill="#D9E4FF" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="800">PAUSE</text>
+  <rect x="354" y="586" width="60" height="44" rx="16" fill="#2B1028" stroke="#6C2E7A"/>
+  <text x="369" y="614" fill="#FFB8F6" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="800">STOP</text>
+  <text x="130" y="694" fill="#7E96D6" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="2">ACTIVE TASK</text>
+  <text x="130" y="732" fill="#F3F8FF" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">Draft proposal</text>
+
+  <rect x="484" y="208" width="784" height="372" rx="28" fill="#091127" stroke="#1B2960"/>
+  <text x="522" y="256" fill="#7E96D6" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="2">NOTES MATRIX</text>
+  <text x="522" y="304" fill="#F3F8FF" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700">Mission Notes</text>
+  <rect x="522" y="334" width="710" height="198" rx="18" fill="#08101F" stroke="#20356B"/>
+  <text x="554" y="388" fill="#D7E6FF" font-family="Inter, Arial, sans-serif" font-size="22">Reframe the experience as a focused command surface.</text>
+  <text x="554" y="430" fill="#8FA7D8" font-family="Inter, Arial, sans-serif" font-size="18">/ stronger timer hierarchy</text>
+  <text x="554" y="462" fill="#8FA7D8" font-family="Inter, Arial, sans-serif" font-size="18">/ clear sync telemetry</text>
+  <text x="554" y="494" fill="#8FA7D8" font-family="Inter, Arial, sans-serif" font-size="18">/ vivid action buttons</text>
+
+  <rect x="484" y="606" width="784" height="192" rx="28" fill="#091127" stroke="#1B2960"/>
+  <text x="522" y="654" fill="#7E96D6" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="2">RECENT LOG</text>
+  <rect x="522" y="682" width="708" height="72" rx="18" fill="#08101F" stroke="#1D346E"/>
+  <text x="552" y="725" fill="#F3F8FF" font-family="Inter, Arial, sans-serif" font-size="20">09:00–09:25  Draft proposal</text>
+  <text x="1124" y="725" fill="#00F0FF" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="800">25m</text>
+</svg>

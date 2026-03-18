@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Timer + Notes</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="container">
+    <header class="header">
+      <div>
+        <h1>Timer + Notes</h1>
+        <p class="subtle">Per-username • Autosave • Persists on refresh • Syncs to server</p>
+      </div>
+      <div class="status" id="statusPill" title="Local + sync status">
+        <span class="dot" id="statusDot"></span>
+        <span id="statusText">Ready</span>
+      </div>
+    </header>
+
+    <section class="panel">
+      <label class="label" for="username">UserName</label>
+      <div class="row">
+        <input id="username" class="input" type="text" placeholder="e.g., shiva" autocomplete="off" />
+        <button id="loadUserBtn" class="btn secondary" type="button">Load</button>
+      </div>
+      <p class="help">Each username gets its own timer + notes saved locally and synced to the server.</p>
+    </section>
+
+    <section class="panel">
+      <div class="timerHeader">
+        <div>
+          <div class="label">Timer</div>
+          <div class="timerValue" id="timerValue">00:00:00</div>
+        </div>
+        <div class="timerActions">
+          <button id="timerToggleBtn" class="btn" type="button">Start</button>
+          <button id="timerResetBtn" class="btn danger" type="button">Reset</button>
+        </div>
+      </div>
+
+      <div class="metaRow">
+        <div class="meta">
+          <span class="metaKey">Running:</span>
+          <span class="metaVal" id="runningVal">No</span>
+        </div>
+        <div class="meta">
+          <span class="metaKey">Saved locally:</span>
+          <span class="metaVal" id="savedAtVal">—</span>
+        </div>
+        <div class="meta">
+          <span class="metaKey">Chars:</span>
+          <span class="metaVal" id="charCount">0 / 10000</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="editorHeader">
+        <div>
+          <div class="label">Notes (max 10,000 chars)</div>
+          <div class="help">Plain text for perfect cursor & line breaks. Stored per username.</div>
+        </div>
+        <div class="editorActions">
+          <button id="clearBtn" class="btn secondary" type="button">Clear</button>
+          <button id="syncBtn" class="btn secondary" type="button">Sync now</button>
+        </div>
+      </div>
+
+      <textarea id="editor" class="textarea"
+        placeholder="Type here…"
+        maxlength="10000"
+        spellcheck="true"
+        aria-label="Notes (max 10,000 characters)"></textarea>
+
+      <div class="footerHelp" id="limitMsg" aria-live="polite"></div>
+    </section>
+
+    <footer class="footer">
+      <small class="subtle">
+        Local cache: <code>localStorage</code> • Server sync: <code>/time/api/user-state.php</code>
+      </small>
+    </footer>
+  </main>
+
+  <!-- cache bust if needed: app.js?v=1 -->
+  <script src="app.js"></script>
+</body>
+</html>
