@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>FocusTime UI Style Previews</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, sans-serif;
+      background: #0b1020;
+      color: #eef2ff;
+      padding: 32px;
+    }
+    h1 { margin: 0 0 8px; }
+    p { color: #b2bddb; max-width: 900px; }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 28px;
+      margin-top: 28px;
+    }
+    .card {
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 20px;
+      padding: 20px;
+    }
+    .card h2 { margin: 0 0 8px; }
+    .card p { margin: 0 0 16px; }
+    img {
+      width: 100%;
+      border-radius: 16px;
+      display: block;
+      border: 1px solid rgba(255,255,255,.08);
+      background: #111;
+    }
+  </style>
+</head>
+<body>
+  <h1>UI Style Preview Board</h1>
+  <p>Three proposed visual directions for the FocusTime interface before implementation.</p>
+  <div class="grid">
+    <section class="card">
+      <h2>Option A — Minimal Dark Productivity</h2>
+      <p>Balanced dashboard layout, glassy cards, calm blue/teal accents, and clear task hierarchy.</p>
+      <img src="minimal-dark.svg" alt="Minimal dark productivity preview" />
+    </section>
+    <section class="card">
+      <h2>Option B — Premium Editorial</h2>
+      <p>Warm paper-like workspace, elevated typography, and a writing-first visual focus.</p>
+      <img src="premium-editorial.svg" alt="Premium editorial preview" />
+    </section>
+    <section class="card">
+      <h2>Option C — Futuristic Control Deck</h2>
+      <p>High-contrast neon dashboard with command-center energy and strong timer emphasis.</p>
+      <img src="futuristic-control.svg" alt="Futuristic control deck preview" />
+    </section>
+  </div>
+</body>
+</html>
