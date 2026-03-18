@@ -1,0 +1,63 @@
+<svg width="1400" height="900" viewBox="0 0 1400 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgA" x1="0" y1="0" x2="1400" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0B1020"/>
+      <stop offset="1" stop-color="#111827"/>
+    </linearGradient>
+    <linearGradient id="cardA" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#162038" stop-opacity="0.95"/>
+      <stop offset="1" stop-color="#11192E" stop-opacity="0.95"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="16" stdDeviation="24" flood-color="#000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+  <rect width="1400" height="900" fill="url(#bgA)"/>
+  <circle cx="250" cy="120" r="240" fill="#4F7CFF" fill-opacity="0.18"/>
+  <circle cx="1220" cy="120" r="200" fill="#16D9C2" fill-opacity="0.14"/>
+
+  <rect x="80" y="56" width="1240" height="110" rx="28" fill="url(#cardA)" stroke="rgba(255,255,255,0.1)" filter="url(#shadow)"/>
+  <text x="120" y="104" fill="#F3F7FF" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">Timer + Notes</text>
+  <text x="120" y="138" fill="#A7B4D6" font-family="Inter, Arial, sans-serif" font-size="18">Focused work tracking with autosave, secure sync, and task timing</text>
+  <rect x="1080" y="84" width="180" height="42" rx="21" fill="#15263A" stroke="#28405F"/>
+  <circle cx="1112" cy="105" r="7" fill="#2DD4BF"/>
+  <text x="1130" y="111" fill="#EAF3FF" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="600">Synced</text>
+
+  <rect x="80" y="210" width="360" height="500" rx="30" fill="url(#cardA)" stroke="#26324A" filter="url(#shadow)"/>
+  <text x="116" y="262" fill="#94A7CF" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700" letter-spacing="1">WORKSPACE</text>
+  <text x="116" y="308" fill="#F3F7FF" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="700">Account</text>
+  <rect x="116" y="334" width="288" height="56" rx="16" fill="#0C1426" stroke="#29354D"/>
+  <text x="136" y="368" fill="#8EA0C9" font-family="Inter, Arial, sans-serif" font-size="15">jane.doe</text>
+  <rect x="116" y="404" width="288" height="56" rx="16" fill="#0C1426" stroke="#29354D"/>
+  <text x="136" y="438" fill="#8EA0C9" font-family="Inter, Arial, sans-serif" font-size="15">•••• PIN</text>
+  <rect x="116" y="480" width="288" height="52" rx="18" fill="#5B8CFF"/>
+  <text x="196" y="513" fill="#F8FBFF" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">Load Workspace</text>
+
+  <rect x="116" y="566" width="288" height="112" rx="24" fill="#0D1629" stroke="#2A3550"/>
+  <text x="138" y="596" fill="#9CB0D8" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="600">ACTIVE SESSION</text>
+  <text x="138" y="638" fill="#FFFFFF" font-family="JetBrains Mono, monospace" font-size="34" font-weight="700">01:24:18</text>
+  <rect x="138" y="650" width="78" height="12" rx="6" fill="#223251"/>
+  <rect x="138" y="650" width="46" height="12" rx="6" fill="#2DD4BF"/>
+
+  <rect x="470" y="210" width="850" height="500" rx="30" fill="url(#cardA)" stroke="#26324A" filter="url(#shadow)"/>
+  <text x="514" y="262" fill="#94A7CF" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700" letter-spacing="1">NOTES</text>
+  <text x="514" y="308" fill="#F3F7FF" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="700">Project Notes</text>
+  <rect x="980" y="258" width="108" height="40" rx="16" fill="#5B8CFF"/>
+  <text x="1011" y="284" fill="#F8FBFF" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Start</text>
+  <rect x="1100" y="258" width="108" height="40" rx="16" fill="#182334" stroke="#2E425E"/>
+  <text x="1132" y="284" fill="#DCE7FF" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Pause</text>
+  <rect x="1220" y="258" width="60" height="40" rx="16" fill="#2B1720" stroke="#5A2E3C"/>
+  <text x="1237" y="284" fill="#FFB8C4" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Stop</text>
+  <rect x="514" y="334" width="762" height="326" rx="24" fill="#0B1324" stroke="#26324A"/>
+  <text x="546" y="386" fill="#AFC0E4" font-family="Inter, Arial, sans-serif" font-size="20">Draft launch notes for the new focus workflow.</text>
+  <text x="546" y="424" fill="#8196C0" font-family="Inter, Arial, sans-serif" font-size="18">• Clarify active task state</text>
+  <text x="546" y="458" fill="#8196C0" font-family="Inter, Arial, sans-serif" font-size="18">• Improve timer prominence</text>
+  <text x="546" y="492" fill="#8196C0" font-family="Inter, Arial, sans-serif" font-size="18">• Add richer sync feedback</text>
+  <text x="546" y="560" fill="#556A95" font-family="Inter, Arial, sans-serif" font-size="18">Type here…</text>
+
+  <rect x="80" y="746" width="1240" height="100" rx="28" fill="url(#cardA)" stroke="#26324A" filter="url(#shadow)"/>
+  <text x="116" y="796" fill="#F3F7FF" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">Recent Time Log</text>
+  <text x="420" y="796" fill="#A7B4D6" font-family="Inter, Arial, sans-serif" font-size="18">Draft proposal</text>
+  <text x="990" y="796" fill="#E6F0FF" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">25m</text>
+  <text x="1080" y="796" fill="#8196C0" font-family="Inter, Arial, sans-serif" font-size="18">09:00 AM</text>
+</svg>
