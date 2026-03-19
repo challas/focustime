@@ -134,6 +134,7 @@
   }
 
   function updateTimerUI() {
+    if (!el.timerToggleBtn) return;
     el.timerToggleBtn.textContent = state.running ? "Stop" : "Start";
   }
 
@@ -634,8 +635,12 @@
     el.loadUserBtn.addEventListener("click", () => void loadUser(el.username.value, true));
     el.username.addEventListener("keydown", onUsernameKeydown);
 
-    el.timerToggleBtn.addEventListener("click", onToggleTimer);
-    el.timerResetBtn.addEventListener("click", onResetTimer);
+    if (el.timerToggleBtn) {
+      el.timerToggleBtn.addEventListener("click", onToggleTimer);
+    }
+    if (el.timerResetBtn) {
+      el.timerResetBtn.addEventListener("click", onResetTimer);
+    }
 
     el.startLapBtn.addEventListener("click", onStartLap);
     el.pauseLapBtn.addEventListener("click", onPauseLap);
