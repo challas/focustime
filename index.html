@@ -8,14 +8,13 @@
 </head>
 <body>
   <main class="container">
-    <header class="header panel panelHero">
-      <div class="heroCopy">
+    <header class="header panel panelHero compactHeader">
+      <div class="heroCopy compactHeroCopy">
         <p class="eyebrow">Focused workspace</p>
         <h1>Timer + Notes</h1>
-        <p class="subtle">A calmer writing-first workspace with autosave, secure sync, and task timing.</p>
       </div>
 
-      <div class="headerMeta">
+      <div class="headerMeta compactHeaderMeta">
         <div class="status" id="statusPill" title="Local + sync status">
           <span class="dot" id="statusDot"></span>
           <span id="statusText">Ready</span>
@@ -49,24 +48,16 @@
           <p class="help subtle2" id="authMsg"></p>
         </section>
 
-        <section class="panel sidePanel sessionPanel">
-          <p class="eyebrow">Session</p>
-          <div class="sessionTimerWrap">
-            <button id="timerToggleBtn" class="btn timerPrimary" type="button">Start</button>
-            <button id="timerResetBtn" class="btn danger" type="button">Reset</button>
-          </div>
-          <p class="help subtle2 sessionNote">Use the timer for a broader focus block, then start a task when you want to track a specific line item.</p>
-        </section>
-
         <section class="panel sidePanel taskPanel">
           <p class="eyebrow">Active task</p>
-          <p class="help subtle2 taskStatusCopy" id="taskStatus">select a line/task and click 'start task'</p>
-          <div class="taskActions">
+          <p class="help subtle2 taskStatusCopy highlightedStatus" id="taskStatus">select a line/task and click 'start task'</p>
+          <div class="taskActions twoColumnActions">
             <button id="startLapBtn" class="btn" type="button">Start Task</button>
             <button id="pauseLapBtn" class="btn secondary" type="button" disabled>Pause</button>
             <button id="stopLapBtn" class="btn danger" type="button" disabled>Stop Task</button>
+            <button id="timerResetBtn" class="btn secondary" type="button">Reset Timer</button>
           </div>
-          <p class="help subtle2 warningText">Start and reset are still partially functional in the underlying app logic.</p>
+          <p class="help subtle2">Select a task line in notes to start tracking. Reset clears the broader session timer without affecting saved notes.</p>
         </section>
       </aside>
 

@@ -27,17 +27,17 @@ body{
 }
 
 .container{
-  max-width: 1280px;
+  max-width: 1380px;
   margin: 0 auto;
-  padding: 28px 24px 40px;
+  padding: 20px 24px 32px;
 }
 
 .header{
   display:flex;
   justify-content:space-between;
   align-items:flex-start;
-  gap:24px;
-  margin-bottom:24px;
+  gap:18px;
+  margin-bottom:18px;
 }
 
 .panel{
@@ -48,6 +48,11 @@ body{
   box-shadow: var(--shadow);
 }
 
+.compactHeader{
+  padding: 16px 20px;
+  border-radius: 22px;
+}
+
 .panelHero{
   background: rgba(251,248,242,.86);
   backdrop-filter: blur(8px);
@@ -55,6 +60,14 @@ body{
 
 .heroCopy{
   max-width: 700px;
+}
+
+.compactHeroCopy h1{
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+}
+
+.compactHeroCopy .eyebrow{
+  margin-bottom: 6px;
 }
 
 .eyebrow{
@@ -86,13 +99,17 @@ h1{
   min-width: 240px;
 }
 
+.compactHeaderMeta{
+  gap: 10px;
+}
+
 .status{
   display:flex;
   align-items:center;
   gap:10px;
   background: var(--panel-strong);
   border: 1px solid var(--border);
-  padding: 10px 16px;
+  padding: 8px 14px;
   border-radius: 999px;
   user-select:none;
   font-size:14px;
@@ -122,15 +139,15 @@ h1{
   border:1px solid var(--border);
   background: rgba(255,255,255,.55);
   color:var(--muted);
-  padding:8px 12px;
+  padding:6px 10px;
   font-size:12px;
   font-weight:600;
 }
 
 .workspace{
   display:grid;
-  grid-template-columns: minmax(240px, 300px) minmax(0, 1fr);
-  gap:24px;
+  grid-template-columns: minmax(220px, 280px) minmax(0, 1.25fr);
+  gap:20px;
   align-items:start;
 }
 
@@ -138,7 +155,7 @@ h1{
 .mainColumn{
   display:flex;
   flex-direction:column;
-  gap:20px;
+  gap:18px;
 }
 
 .sidePanel{
@@ -236,8 +253,16 @@ h1{
   padding:30px 32px;
 }
 
+.notesPanel{
+  min-height: 78vh;
+}
+
+.logPanel{
+  max-width: 920px;
+}
+
 .editorialPanel{
-  min-height: 720px;
+  min-height: 780px;
 }
 
 .editorHeader,
@@ -345,4 +370,32 @@ code{
   .notesPanel,
   .logPanel{ padding:24px 20px; }
   .textarea{ min-height: 420px; padding: 24px; font-size: 21px; }
+}
+
+
+.highlightedStatus{
+  padding: 14px 16px;
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(35,32,29,.08), rgba(255,255,255,.7));
+  border: 1px solid rgba(35,32,29,.12);
+  color: var(--text);
+  font-weight: 600;
+}
+
+.twoColumnActions{
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media (max-width: 900px){
+  .workspace{
+    grid-template-columns: 1fr;
+  }
+
+  .notesPanel{
+    min-height: 68vh;
+  }
+
+  .twoColumnActions{
+    grid-template-columns: 1fr;
+  }
 }
