@@ -7,6 +7,11 @@
 
   const USERNAME_KEY = "unt_last_username_v5";
   const STATE_PREFIX = "unt_state_v5__";
+  const THEME_KEY = "unt_theme_mode_v1";
+  const TEXT_SIZE_KEY = "unt_notes_text_size_v1";
+  const TEXT_SIZE_STEPS = [20, 24, 28];
+  const TEXT_SIZE_LABELS = ["S", "M", "L"];
+  const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
 
   const SAVE_DEBOUNCE_MS = 300;
   const SYNC_DEBOUNCE_MS = 900;
@@ -23,6 +28,12 @@
     notesLabel: document.getElementById("notesLabel"),
 
     editor: document.getElementById("editor"),
+    decreaseTextBtn: document.getElementById("decreaseTextBtn"),
+    increaseTextBtn: document.getElementById("increaseTextBtn"),
+    textSizeLabel: document.getElementById("textSizeLabel"),
+    themeLightBtn: document.getElementById("themeLightBtn"),
+    themeDarkBtn: document.getElementById("themeDarkBtn"),
+    themeSystemBtn: document.getElementById("themeSystemBtn"),
     startLapBtn: document.getElementById("startLapBtn"),
     pauseLapBtn: document.getElementById("pauseLapBtn"),
     stopLapBtn: document.getElementById("stopLapBtn"),
@@ -42,6 +53,8 @@
   let tickInterval = null;
   let saveTimer = null;
   let syncTimer = null;
+  let textSizeIndex = 1;
+  let themeMode = "system";
 
   function defaultState() {
     return {
@@ -127,8 +140,7 @@
     const txt = el.editor.value || "";
     const chars = txt.length;
 
-    el.notesLabel.textContent = `Notes (${chars}/${MAX_CHARS} chars)`;
-    // also update textarea aria-label for screen readers
+    el.notesLabel.textContent = `${chars.toLocaleString()}/${MAX_CHARS.toLocaleString()} chars`;
     el.editor.setAttribute("aria-label", `Notes (${chars}/${MAX_CHARS} chars)`);
 
   }
@@ -138,6 +150,41 @@
     el.timerToggleBtn.textContent = state.running ? "Stop" : "Start";
   }
 
+
+
+  function applyTextSize() {
+    const size = TEXT_SIZE_STEPS[textSizeIndex] || TEXT_SIZE_STEPS[1];
+    const label = TEXT_SIZE_LABELS[textSizeIndex] || TEXT_SIZE_LABELS[1];
+    document.documentElement.style.setProperty("--editor-font-size", `${size}px`);
+    el.textSizeLabel.textContent = `Text size: ${label}`;
+    el.decreaseTextBtn.disabled = textSizeIndex === 0;
+    el.increaseTextBtn.disabled = textSizeIndex === TEXT_SIZE_STEPS.length - 1;
+    autoGrowTextarea();
+  }
+
+  function setTextSize(nextIndex) {
+    textSizeIndex = Math.max(0, Math.min(TEXT_SIZE_STEPS.length - 1, nextIndex));
+    localStorage.setItem(TEXT_SIZE_KEY, String(textSizeIndex));
+    applyTextSize();
+  }
+
+  function applyTheme() {
+    const root = document.documentElement;
+    const resolvedTheme = themeMode === "system" ? (prefersDarkScheme.matches ? "dark" : "light") : themeMode;
+    root.setAttribute("data-theme", resolvedTheme);
+
+    [el.themeLightBtn, el.themeDarkBtn, el.themeSystemBtn].forEach((btn) => {
+      if (!btn) return;
+      const active = btn.dataset.theme === themeMode;
+      btn.setAttribute("aria-pressed", active ? "true" : "false");
+    });
+  }
+
+  function setTheme(nextTheme) {
+    themeMode = ["light", "dark", "system"].includes(nextTheme) ? nextTheme : "system";
+    localStorage.setItem(THEME_KEY, themeMode);
+    applyTheme();
+  }
 
 
   // localStorage
@@ -643,6 +690,11 @@
     }
 
     el.startLapBtn.addEventListener("click", onStartLap);
+    el.decreaseTextBtn.addEventListener("click", () => setTextSize(textSizeIndex - 1));
+    el.increaseTextBtn.addEventListener("click", () => setTextSize(textSizeIndex + 1));
+    [el.themeLightBtn, el.themeDarkBtn, el.themeSystemBtn].forEach((btn) => {
+      btn.addEventListener("click", () => setTheme(btn.dataset.theme));
+    });
     el.pauseLapBtn.addEventListener("click", onPauseLap);
     el.stopLapBtn.addEventListener("click", onStopLap);
 
@@ -662,6 +714,20 @@
         updateTaskStatusLabel();
       }
     }, 100);
+
+    const storedTextSize = Number(localStorage.getItem(TEXT_SIZE_KEY));
+    if (Number.isInteger(storedTextSize)) {
+      textSizeIndex = Math.max(0, Math.min(TEXT_SIZE_STEPS.length - 1, storedTextSize));
+    }
+    const storedTheme = localStorage.getItem(THEME_KEY);
+    if (storedTheme) themeMode = storedTheme;
+    applyTextSize();
+    applyTheme();
+    if (typeof prefersDarkScheme.addEventListener === "function") {
+      prefersDarkScheme.addEventListener("change", () => {
+        if (themeMode === "system") applyTheme();
+      });
+    }
 
     const last = normalizeUsername(localStorage.getItem(USERNAME_KEY));
     if (last) {
