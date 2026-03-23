@@ -8,14 +8,14 @@
 </head>
 <body>
   <main class="container">
-    <header class="header panel panelHero">
-      <div class="heroCopy">
+    <header class="header panel panelHero compactHeader">
+      <div class="heroCopy compactHeroCopy">
         <p class="eyebrow">Focused workspace</p>
         <h1>Timer + Notes</h1>
-        <p class="subtle">A calmer writing-first workspace with autosave, secure sync, and task timing.</p>
+        <p class="subtle heroSubtle">A writing-first cockpit for active tasks, persistent notes, and time tracking.</p>
       </div>
 
-      <div class="headerMeta">
+      <div class="headerMeta compactHeaderMeta">
         <div class="status" id="statusPill" title="Local + sync status">
           <span class="dot" id="statusDot"></span>
           <span id="statusText">Ready</span>
@@ -29,59 +29,84 @@
     </header>
 
     <section class="workspace">
-      <aside class="sidebarRail">
-        <section class="panel sidePanel smallPanel">
-          <p class="eyebrow">Account</p>
-          <div class="userRow compactFields">
-            <div class="userField">
-              <div class="label small">User</div>
-              <input id="username" class="input" type="text" placeholder="username" autocomplete="off" />
-            </div>
+      <div class="dashboardRow">
+        <section class="panel accountPanel" aria-labelledby="accountHeading">
+          <div class="panelHeaderStack">
+            <p class="eyebrow" id="accountHeading">Account</p>
+            <div class="label panelKicker">Identity rail</div>
+          </div>
 
-            <div class="userField">
-              <div class="label small">Secret PIN</div>
-              <input id="pin" class="input" type="password" placeholder="PIN" autocomplete="off" />
-            </div>
+          <div class="accountStack">
+            <label class="pillField" for="username">
+              <span class="pillLabel">User</span>
+              <input id="username" class="input pillInput" type="text" placeholder="username" autocomplete="off" />
+            </label>
+
+            <label class="pillField" for="pin">
+              <span class="pillLabel">PIN</span>
+              <input id="pin" class="input pillInput" type="password" placeholder="PIN" autocomplete="off" />
+            </label>
 
             <button id="loadUserBtn" class="btn secondary userLoadBtn" type="button">Load workspace</button>
           </div>
 
-          <p class="help subtle2" id="authMsg"></p>
+          <p class="help subtle2 authMessage" id="authMsg"></p>
         </section>
 
-        <section class="panel sidePanel sessionPanel">
-          <p class="eyebrow">Session</p>
-          <div class="sessionTimerWrap">
-            <button id="timerToggleBtn" class="btn timerPrimary" type="button">Start</button>
-            <button id="timerResetBtn" class="btn danger" type="button">Reset</button>
+        <section class="panel commandPanel" id="commandPanel">
+          <div class="commandHeader">
+            <div>
+              <p class="eyebrow">Command panel</p>
+              <div class="label panelKicker">Kinetic timer / neon state board</div>
+            </div>
+
+            <div class="commandBadges" aria-hidden="true">
+              <span class="commandBadge">Live task</span>
+              <span class="commandBadge">Fast reset</span>
+            </div>
           </div>
-          <p class="help subtle2 sessionNote">Use the timer for a broader focus block, then start a task when you want to track a specific line item.</p>
-        </section>
 
-        <section class="panel sidePanel taskPanel">
-          <p class="eyebrow">Active task</p>
-          <p class="help subtle2 taskStatusCopy" id="taskStatus">select a line/task and click 'start task'</p>
-          <div class="taskActions">
+          <div class="taskSignalBand">
+            <div class="taskSignalLabel">Active task</div>
+            <p class="taskSignalText highlightedStatus" id="taskStatus">select a line/task and click 'start task'</p>
+          </div>
+
+          <div class="taskActions commandActions">
             <button id="startLapBtn" class="btn" type="button">Start Task</button>
             <button id="pauseLapBtn" class="btn secondary" type="button" disabled>Pause</button>
             <button id="stopLapBtn" class="btn danger" type="button" disabled>Stop Task</button>
+            <button id="timerResetBtn" class="btn secondary" type="button">Reset Timer</button>
           </div>
-          <p class="help subtle2 warningText">Start and reset are still partially functional in the underlying app logic.</p>
+
+          <p class="help subtle2 commandHelp">Select a task line in notes to start tracking. Reset clears the broader session timer without affecting saved notes.</p>
         </section>
-      </aside>
+      </div>
 
-      <div class="mainColumn">
-        <section class="panel notesPanel editorialPanel">
-          <div class="editorHeader">
-            <div>
+      <section class="panel notesPanel editorialPanel">
+        <div class="editorHeader">
+          <div class="editorTitleBlock">
+            <div class="notesHeadingRow">
               <p class="eyebrow">Notes</p>
-              <div class="label editorialTitle" id="notesLabel">Notes (0/10,000 chars)</div>
-              <div class="help editorialHelp">Auto-grows as you type</div>
+              <div class="notesCounter" id="notesLabel">0/10,000 chars</div>
             </div>
+            <div class="help editorialHelp">Auto-grows as you type</div>
+          </div>
 
-            <div class="editorMeta">
-              <span class="metaPill">Writing-first layout</span>
-              <span class="metaPill">Live persistence</span>
+          <div class="editorMeta">
+            <div class="segmentedControl" role="group" aria-label="Theme mode">
+              <button id="themeLightBtn" class="segmentBtn" type="button" data-theme="light" aria-pressed="false">Night Off</button>
+              <button id="themeDarkBtn" class="segmentBtn" type="button" data-theme="dark" aria-pressed="false">Night On</button>
+              <button id="themeSystemBtn" class="segmentBtn" type="button" data-theme="system" aria-pressed="true">System</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="editorSurface">
+          <div class="editorToolbar" role="toolbar" aria-label="Notes controls">
+            <div class="textSizeControls" role="group" aria-label="Text size controls">
+              <button id="decreaseTextBtn" class="iconBtn" type="button" aria-label="Decrease notes text size">−</button>
+              <span class="toolbarLabel" id="textSizeLabel">Text size: M</span>
+              <button id="increaseTextBtn" class="iconBtn" type="button" aria-label="Increase notes text size">+</button>
             </div>
           </div>
 
@@ -91,25 +116,25 @@
             maxlength="10000"
             spellcheck="true"
             aria-label="Notes (max 10,000 characters)"></textarea>
+        </div>
 
-          <div class="editorFooterActions">
-            <button id="clearBtn" class="btn secondary" type="button">Clear</button>
-            <button id="syncBtn" class="btn secondary" type="button">Sync now</button>
+        <div class="editorFooterActions">
+          <button id="clearBtn" class="btn secondary" type="button">Clear</button>
+          <button id="syncBtn" class="btn secondary" type="button">Sync now</button>
+        </div>
+
+        <div class="footerHelp" id="limitMsg" aria-live="polite"></div>
+      </section>
+
+      <section class="panel logPanel editorialLogPanel">
+        <div class="logHeaderRow">
+          <div>
+            <p class="eyebrow">Log</p>
+            <div class="label editorialLogTitle">Recent Time Log</div>
           </div>
-
-          <div class="footerHelp" id="limitMsg" aria-live="polite"></div>
-        </section>
-
-        <section class="panel logPanel editorialLogPanel">
-          <div class="logHeaderRow">
-            <div>
-              <p class="eyebrow">Log</p>
-              <div class="label editorialTitle">Recent Time Log</div>
-            </div>
-          </div>
-          <div id="logContainer" class="logContainer"></div>
-        </section>
-      </div>
+        </div>
+        <div id="logContainer" class="logContainer"></div>
+      </section>
     </section>
 
     <footer class="footer">
