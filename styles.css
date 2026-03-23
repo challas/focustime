@@ -319,10 +319,10 @@ html[data-theme="dark"] .dot{ box-shadow:0 0 0 4px rgba(242,201,76,.2); }
 
 .workspace{ gap:20px; }
 .dashboardRow{
-  display:grid;
-  grid-template-columns:minmax(260px, 340px) minmax(0, 1fr);
+  display:flex;
+  flex-direction:column;
   gap:20px;
-  align-items:start;
+  align-items:stretch;
 }
 
 .accountPanel,
@@ -438,6 +438,16 @@ html[data-theme="dark"] .notesPanel::before{
 }
 
 .authMessage{ min-height: 22px; }
+
+.taskActions{
+  display:grid;
+  gap:12px;
+}
+
+.taskActions .btn{
+  width:100%;
+}
+
 
 .taskSignalBand{
   padding:18px;
