@@ -153,18 +153,6 @@
 
 
 
-  function syncCommandPanelState() {
-    if (!el.commandPanel) return;
-    el.commandPanel.classList.remove("is-idle", "is-running", "is-paused");
-
-    if (!state.lap || !state.lap.isRunning) {
-      el.commandPanel.classList.add("is-idle");
-      return;
-    }
-
-    el.commandPanel.classList.add(state.lap.isPaused ? "is-paused" : "is-running");
-  }
-
   function applyTextSize() {
     const size = TEXT_SIZE_STEPS[textSizeIndex] || TEXT_SIZE_STEPS[1];
     const label = TEXT_SIZE_LABELS[textSizeIndex] || TEXT_SIZE_LABELS[1];
