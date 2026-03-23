@@ -28,24 +28,28 @@
     </header>
 
     <section class="workspace">
-      <aside class="sidebarRail">
-        <section class="panel sidePanel smallPanel">
-          <p class="eyebrow">Account</p>
-          <div class="userRow compactFields">
-            <div class="userField">
-              <div class="label small">User</div>
-              <input id="username" class="input" type="text" placeholder="username" autocomplete="off" />
-            </div>
+      <div class="dashboardRow">
+        <section class="panel accountPanel" aria-labelledby="accountHeading">
+          <div class="panelHeaderStack">
+            <p class="eyebrow" id="accountHeading">Account</p>
+            <div class="label panelKicker">Identity rail</div>
+          </div>
 
-            <div class="userField">
-              <div class="label small">Secret PIN</div>
-              <input id="pin" class="input" type="password" placeholder="PIN" autocomplete="off" />
-            </div>
+          <div class="accountStack">
+            <label class="pillField" for="username">
+              <span class="pillLabel">User</span>
+              <input id="username" class="input pillInput" type="text" placeholder="username" autocomplete="off" />
+            </label>
+
+            <label class="pillField" for="pin">
+              <span class="pillLabel">PIN</span>
+              <input id="pin" class="input pillInput" type="password" placeholder="PIN" autocomplete="off" />
+            </label>
 
             <button id="loadUserBtn" class="btn secondary userLoadBtn" type="button">Load workspace</button>
           </div>
 
-          <p class="help subtle2" id="authMsg"></p>
+          <p class="help subtle2 authMessage" id="authMsg"></p>
         </section>
 
         <section class="panel sidePanel taskPanel">
@@ -59,7 +63,7 @@
           </div>
           <p class="help subtle2">Select a task line in notes to start tracking. Reset clears the broader session timer without affecting saved notes.</p>
         </section>
-      </aside>
+      </div>
 
       <div class="mainColumn">
         <section class="panel notesPanel editorialPanel">
@@ -71,6 +75,8 @@
               </div>
               <div class="help editorialHelp">Auto-grows as you type</div>
             </div>
+            <div class="help editorialHelp">Auto-grows as you type</div>
+          </div>
 
             <div class="editorMeta">
               <div class="segmentedControl" role="group" aria-label="Theme mode">
@@ -98,13 +104,13 @@
               aria-label="Notes (max 10,000 characters)"></textarea>
           </div>
 
-          <div class="editorFooterActions">
-            <button id="clearBtn" class="btn secondary" type="button">Clear</button>
-            <button id="syncBtn" class="btn secondary" type="button">Sync now</button>
-          </div>
+        <div class="editorFooterActions">
+          <button id="clearBtn" class="btn secondary" type="button">Clear</button>
+          <button id="syncBtn" class="btn secondary" type="button">Sync now</button>
+        </div>
 
-          <div class="footerHelp" id="limitMsg" aria-live="polite"></div>
-        </section>
+        <div class="footerHelp" id="limitMsg" aria-live="polite"></div>
+      </section>
 
         <section class="panel logPanel editorialLogPanel">
           <div class="logHeaderRow">
@@ -113,9 +119,9 @@
               <div class="label editorialLogTitle">Recent Time Log</div>
             </div>
           </div>
-          <div id="logContainer" class="logContainer"></div>
-        </section>
-      </div>
+        </div>
+        <div id="logContainer" class="logContainer"></div>
+      </section>
     </section>
 
     <footer class="footer">

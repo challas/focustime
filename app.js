@@ -46,6 +46,7 @@
     statusText: document.getElementById("statusText"),
 
     logContainer: document.getElementById("logContainer"),
+    commandPanel: document.getElementById("commandPanel"),
   };
 
   let currentUser = "";
@@ -385,6 +386,7 @@
 
     updateMetrics();
 
+    syncCommandPanelState();
     updateTimerUI();
     syncLapControls();
     renderLog();
@@ -526,6 +528,7 @@
     setStatus("ok", `Task timer started for: "${selected.text}"`);
     updateLapTimerUI();
     updateTaskStatusLabel();
+    syncCommandPanelState();
     scheduleSave();
   }
 
@@ -552,6 +555,7 @@
 
     updateLapTimerUI();
     updateTaskStatusLabel();
+    syncCommandPanelState();
     scheduleSave();
   }
 
@@ -601,6 +605,7 @@
 
     setStatus("ok", "Task timer stopped and logged");
     updateTaskStatusLabel();
+    syncCommandPanelState();
     renderLog();
     scheduleSave();
   }
@@ -643,6 +648,7 @@
       el.pauseLapBtn.textContent = "Pause";
       el.stopLapBtn.disabled = true;
       updateTaskStatusLabel();
+      syncCommandPanelState();
       return;
     }
 
@@ -652,6 +658,7 @@
     el.stopLapBtn.disabled = false;
     updateLapTimerUI();
     updateTaskStatusLabel();
+    syncCommandPanelState();
   }
 
   function renderLog() {
@@ -736,6 +743,7 @@
     } else {
       setStatus("info", "Enter username to begin");
       updateTaskStatusLabel();
+      syncCommandPanelState();
       startTick();
       autoGrowTextarea();
       updateMetrics();
