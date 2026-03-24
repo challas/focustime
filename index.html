@@ -28,7 +28,7 @@
     </header>
 
     <section class="workspace">
-      <div class="dashboardRow">
+      <div class="dashboardRow sidebarRail">
         <section class="panel accountPanel" aria-labelledby="accountHeading">
           <div class="panelHeaderStack">
             <p class="eyebrow" id="accountHeading">Account</p>
@@ -75,14 +75,13 @@
               </div>
               <div class="help editorialHelp">Auto-grows as you type</div>
             </div>
-            <div class="help editorialHelp">Auto-grows as you type</div>
-          </div>
 
             <div class="editorMeta">
               <div class="segmentedControl" role="group" aria-label="Theme mode">
                 <button id="themeLightBtn" class="segmentBtn" type="button" data-theme="light" aria-pressed="false">Night Off</button>
                 <button id="themeDarkBtn" class="segmentBtn" type="button" data-theme="dark" aria-pressed="false">Night On</button>
                 <button id="themeSystemBtn" class="segmentBtn" type="button" data-theme="system" aria-pressed="true">System</button>
+                <button id="themeSimpleBtn" class="segmentBtn" type="button" data-theme="simple" aria-pressed="false">Simple</button>
               </div>
             </div>
           </div>
@@ -119,9 +118,9 @@
               <div class="label editorialLogTitle">Recent Time Log</div>
             </div>
           </div>
-        </div>
-        <div id="logContainer" class="logContainer"></div>
-      </section>
+          <div id="logContainer" class="logContainer"></div>
+        </section>
+      </div>
     </section>
 
     <footer class="footer">

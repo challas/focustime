@@ -34,6 +34,7 @@
     themeLightBtn: document.getElementById("themeLightBtn"),
     themeDarkBtn: document.getElementById("themeDarkBtn"),
     themeSystemBtn: document.getElementById("themeSystemBtn"),
+    themeSimpleBtn: document.getElementById("themeSimpleBtn"),
     startLapBtn: document.getElementById("startLapBtn"),
     pauseLapBtn: document.getElementById("pauseLapBtn"),
     stopLapBtn: document.getElementById("stopLapBtn"),
@@ -174,7 +175,7 @@
     const resolvedTheme = themeMode === "system" ? (prefersDarkScheme.matches ? "dark" : "light") : themeMode;
     root.setAttribute("data-theme", resolvedTheme);
 
-    [el.themeLightBtn, el.themeDarkBtn, el.themeSystemBtn].forEach((btn) => {
+    [el.themeLightBtn, el.themeDarkBtn, el.themeSystemBtn, el.themeSimpleBtn].forEach((btn) => {
       if (!btn) return;
       const active = btn.dataset.theme === themeMode;
       btn.setAttribute("aria-pressed", active ? "true" : "false");
@@ -182,7 +183,7 @@
   }
 
   function setTheme(nextTheme) {
-    themeMode = ["light", "dark", "system"].includes(nextTheme) ? nextTheme : "system";
+    themeMode = ["light", "dark", "system", "simple"].includes(nextTheme) ? nextTheme : "system";
     localStorage.setItem(THEME_KEY, themeMode);
     applyTheme();
   }
@@ -699,7 +700,7 @@
     el.startLapBtn.addEventListener("click", onStartLap);
     el.decreaseTextBtn.addEventListener("click", () => setTextSize(textSizeIndex - 1));
     el.increaseTextBtn.addEventListener("click", () => setTextSize(textSizeIndex + 1));
-    [el.themeLightBtn, el.themeDarkBtn, el.themeSystemBtn].forEach((btn) => {
+    [el.themeLightBtn, el.themeDarkBtn, el.themeSystemBtn, el.themeSimpleBtn].forEach((btn) => {
       btn.addEventListener("click", () => setTheme(btn.dataset.theme));
     });
     el.pauseLapBtn.addEventListener("click", onPauseLap);
